@@ -51,4 +51,34 @@ function birthdayCakeCandles(candles) {
 function timeConversion(s) {
     const getHour = s.split(':', 1).toLocaleString()
     const restNumber = s.split(':', 3)
-    cons
+    const firstNumber = restNumber[1]
+    const secoundNumber = restNumber[2].slice(0, 2).toLocaleString()
+    let hourNumber = parseInt(getHour, 10)
+
+    const template = `${getHour}:${firstNumber}:${secoundNumber}`
+
+    if (s.includes('AM')) {
+        if (hourNumber === 12) {
+            let dateString = `00:${firstNumber}:${secoundNumber}`
+            return dateString
+        }
+        return template
+    }
+
+    if (s.includes('PM')) {
+        let hour = hourNumber + 12
+
+        if (hourNumber > 12) {
+            let dateString = `00:${firstNumber}:${secoundNumber}`
+            return dateString
+        }
+        if (hourNumber < 12) {
+            let dateString = `${hour}:${firstNumber}:${secoundNumber}`
+            return dateString
+        }
+        return template
+    }
+}
+
+const time = timeConversion('06:40:03AM')
+console.log(time)
