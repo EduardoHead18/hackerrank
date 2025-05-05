@@ -80,5 +80,16 @@ function timeConversion(s) {
     }
 }
 
-const time = timeConversion('06:40:03AM')
-console.log(time)
+//const time = timeConversion('06:40:03AM')
+
+function compareTriplets(a, b) {
+    let counterAra = 0
+    let counterarb = 0
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] > b[i]) counterAra += 1
+        else if (a[i] < b[i]) counterarb += 1
+    }
+    return [counterAra, counterarb]
+}
+const value = compareTriplets([3, 11, 19], [5, 6, 7])
+console.log(value)
